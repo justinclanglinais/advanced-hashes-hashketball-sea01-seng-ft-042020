@@ -29,11 +29,13 @@ def game_hash
 end
 
 def num_points_scored(name)
-  if name == "Alan Anderson"
-    return "22"
+  game_hash.each do | which_team , team_attr |
+    team_attr[:players].each do | player |
+      if player[:player_name] == name 
+        return player[:points]
+      end
+    end
   end
-  if name == "Regige Evans"
-    return "12"
 end
 
 def shoe_size(name)
